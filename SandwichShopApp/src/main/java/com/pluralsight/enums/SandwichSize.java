@@ -1,47 +1,51 @@
 package com.pluralsight.enums;
 
-public enum SandwichSize {
-    FOUR_INCH(4,5.50,1.00,.50,.70,.30),
-    EIGHT_INCH(8,7.00,2.00,1.00,1.50,.60),
-    TWELVE_INCH(12,8.50,3.00,1.50,2.25,.90);
-private final int inches;
-private final double price;
-private final double meat;
-private final double extraMeat;
-private final double cheese;
-private final double extraCheese;
+import com.pluralsight.models.MenuItem;
 
-    SandwichSize(int inches,double price,double meat,double extraMeat,double cheese,double extraCheese) {
+public enum SandwichSize  {
+    Four(4,5.50,1.00,.50,.70,.30),
+    Eight(8,7.00,2.00,1.00,1.50,.60),
+    Twelve(12,8.50,3.00,1.50,2.25,.90);
+private final int inches;
+private final double basePrice;
+private final double meatPrice;
+private final double extraMeatPrice;
+private final double cheesePrice;
+private final double extraCheesePrice;
+
+    SandwichSize(int inches,double basePrice,double meatPrice,double extraMeatPrice,double cheesePrice,double extraCheesePrice) {
         this.inches = inches;
-        this.price=price;
-        this.meat=meat;
-        this.extraMeat=extraMeat;
-        this.cheese=cheese;
-        this.extraCheese=extraCheese;
+        this.basePrice=basePrice;
+        this.meatPrice=meatPrice;
+        this.extraMeatPrice=extraMeatPrice;
+        this.cheesePrice=cheesePrice;
+        this.extraCheesePrice=extraCheesePrice;
     }
     public int getInches() {
         return inches;
     }
 
-    public double getPrice() {
-        return price;
+    public double getBasePrice() {
+        return basePrice;
     }
 
-    public double getMeat() {
-        return meat;
+    public double getMeatPrice() {
+        return meatPrice;
     }
 
-    public double getCheese() {
-        return cheese;
+    public double getExtraMeatPrice() {
+        return extraMeatPrice;
     }
 
-    public double getExtraMeat() {
-        return extraMeat;
+    public double getCheesePrice() {
+        return cheesePrice;
     }
 
-    public double getExtraCheese() {
-        return extraCheese;
+    public double getExtraCheesePrice() {
+        return extraCheesePrice;
     }
+
+
 }
 
 

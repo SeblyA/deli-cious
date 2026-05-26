@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Helper {
    public static final Scanner scanner = new Scanner(System.in);
-   int choice;
 
 
     public static String readString(String prompt) {
@@ -35,7 +34,11 @@ public class Helper {
                 System.out.println("Please enter a valid number, for example 1,2,3");
             }
         }
+       // public static  void pause() {
+        //    System.out.println();
+        //    readString("Enter choice to continue: ");
+        }
     }
-}
+
 
 

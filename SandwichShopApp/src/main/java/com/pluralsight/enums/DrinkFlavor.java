@@ -4,5 +4,7 @@ public enum DrinkFlavor {
     COKE,
     LEMONADE,
     SWEET_TEA,
-    ROOT_BEER
+    ROOT_BEER;
 }
+
+

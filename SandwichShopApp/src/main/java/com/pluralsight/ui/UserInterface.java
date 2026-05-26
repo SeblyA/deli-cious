@@ -1,17 +1,20 @@
 package com.pluralsight.ui;
 
-import com.pluralsight.enums.BreadType;
+import com.pluralsight.enums.*;
 import com.pluralsight.service.Helper;
-import com.pluralsight.enums.BreadType;
 
-import java.util.ArrayList;
 
-import static com.pluralsight.service.Helper.readInt;
+import java.util.Arrays;
+import java.util.List;
+
+
+import static com.pluralsight.service.Helper.*;
+import static java.util.Arrays.stream;
+
+
+
 
 public class UserInterface {
-    ArrayList<BreadType> breadTypes = new ArrayList<BreadType>();
-    BreadType breadType;
-
 
     public void StartMenu() {
         int choice;
@@ -46,10 +49,16 @@ public class UserInterface {
     }
 
     public void orderScreen() {
-        IO.println("1)Add Sandwich)");
-        IO.println("2)Add Drink");
-        IO.println("3)Add Chips");
-        IO.println("4)ACheckout");
-        IO.println("O)Cancel Order");
+        int choice;
+
+            IO.println("1)Add Sandwich)");
+            IO.println("2)Add Drink");
+            IO.println("3)Add Chips");
+            IO.println("4)ACheckout");
+            IO.println("O)Cancel Order");
+            choice = Helper.readInt("choose an option: ");
+
+        }
     }
-}
+
+
