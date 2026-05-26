@@ -1,5 +1,9 @@
 package com.pluralsight.service;
 
+import com.pluralsight.enums.DrinkSize;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Helper {
@@ -38,6 +42,20 @@ public class Helper {
         //    System.out.println();
         //    readString("Enter choice to continue: ");
         }
+    public static void displayOptions(List<?> items) {
+        for (int i = 0; i < items.size(); i++) {
+            System.out.println((i + 1) + ") " + items.get(i));
+        }
+        String input = scanner.nextLine();
+        try{
+
+            DrinkSize selectedSize = DrinkSize.valueOf(input.toUpperCase());
+        }catch (IllegalArgumentException e){
+            System.out.println("Invalid drink size!");
+            System.out.println(Arrays.toString(DrinkSize.values()));
+        }
+
+    }
     }
 
 

@@ -2,6 +2,8 @@ package com.pluralsight.enums;
 
 import com.pluralsight.models.MenuItem;
 
+import java.util.Arrays;
+
 public enum SandwichSize  {
     Four(4,5.50,1.00,.50,.70,.30),
     Eight(8,7.00,2.00,1.00,1.50,.60),
@@ -45,7 +47,9 @@ private final double extraCheesePrice;
         return extraCheesePrice;
     }
 
-
+    public static void displayOption(){
+        IO.println(Arrays.toString(values()));
+    }
 }
 
 

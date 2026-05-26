@@ -2,10 +2,10 @@ package com.pluralsight.models;
 
 import com.pluralsight.enums.DrinkFlavor;
 import com.pluralsight.enums.DrinkSize;
+import com.pluralsight.interfaces.Priceable;
 
 
-
-public class Drink  extends MenuItem {
+public class Drink  implements Priceable {
     private DrinkFlavor flavor;
     private DrinkSize size;
 

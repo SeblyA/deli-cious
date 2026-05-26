@@ -12,7 +12,7 @@ import com.pluralsight.toppings.Sauce;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sandwich extends MenuItem {
+public class Sandwich implements Priceable {
    private SandwichSize size;
     private BreadType bread;
 
@@ -58,7 +58,7 @@ private boolean extraCheese;
 
     public String  getName() {return size + " " +
             bread + " Sandwich " +
-            regularToppings +
+            regularToppings +sauces+
             " $" + getPrice();
 
     }

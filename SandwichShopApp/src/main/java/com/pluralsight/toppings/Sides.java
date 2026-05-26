@@ -2,16 +2,9 @@ package com.pluralsight.toppings;
 
 import java.util.Arrays;
 
-public enum RegularTopping {
-lettuce,
-    peppers,
-    onions,
-    tomatoes,
-    jalapenos,
-    cucumber,
-    pickles,
-    guacamole,
-    mushrooms;
+public enum Sides {
+    AU_JUS,
+    SAUCE;
     public static void displayOption(){
         IO.println(Arrays.toString(values()));
     }
