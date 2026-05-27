@@ -1,5 +1,7 @@
 package com.pluralsight.enums;
 
+import java.util.Arrays;
+
 public enum DrinkSize {
     SMALL(2.00),
     MEDIUM(2.50),
@@ -10,5 +12,8 @@ public enum DrinkSize {
     }
     public double getDrinkPrice(){
         return drinkPrice;
+    }
+    public static void displayOption() {
+        System.out.println(Arrays.toString(values()));
     }
 }

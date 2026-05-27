@@ -2,32 +2,33 @@ package com.pluralsight.models;
 
 import com.pluralsight.enums.BreadType;
 import com.pluralsight.enums.SandwichSize;
-import com.pluralsight.interfaces.Priceable;
-import com.pluralsight.toppings.Cheese;
-import com.pluralsight.toppings.Meat;
-import com.pluralsight.toppings.RegularTopping;
-import com.pluralsight.toppings.Sauce;
-
-
+import com.pluralsight.toppings.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sandwich extends MenuItem {
+public class Sandwich extends MenuItem  {
    private SandwichSize size;
     private BreadType bread;
+
+public Sandwich() {
+    super ("Sandwich");
+    this.size = size;
+    this.bread = bread;
+}
 
     private List<Meat> meats=new ArrayList<>();
     private List<Cheese>cheeses=new ArrayList<>();
     private List<RegularTopping>regularToppings = new ArrayList<>();
     private List<Sauce>sauces=new ArrayList<>();
+    private List <Sides> sides=new ArrayList<>();
 
 private boolean extraMeat;
 private boolean extraCheese;
+private boolean toasted;
 
-    public Sandwich(SandwichSize size, BreadType bread) {
-        this.size = size;
-        this.bread = bread;
-    }
+
+    public void addSize(SandwichSize size){this.size=size;}
+    public void addBread(BreadType bread){this.bread=bread;}
     public void addMeat(Meat meat) {
         meats.add(meat);
     }
@@ -39,6 +40,9 @@ private boolean extraCheese;
     }
     public void addSauce(Sauce sauce) {
         sauces.add(sauce);
+    }
+    public void addSides(Sides sides) {
+        this.sides.add(sides);
     }
 
     @Override
@@ -61,6 +65,22 @@ private boolean extraCheese;
             regularToppings +
             " $" + getPrice();
 
+    }
+
+    @Override
+    public double calculatePrice() {
+        return 0;
+    }
+
+    @Override
+    public String getReceiptLine() {
+         return size + "\" " + bread + " sandwich"
+                + "\nMeats: " + meats
+                + "\nCheese: " + cheeses
+                + "\nToppings: " + regularToppings
+                + "\nSauces: " + sauces
+                + "\nToasted: " + toasted
+                + "\nPrice: $" + String.format("%.2f",getPrice());
     }
 
 

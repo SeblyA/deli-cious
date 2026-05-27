@@ -4,29 +4,49 @@ import com.pluralsight.enums.ChipsFlavor;
 
 public class Chips extends MenuItem {
 
-private ChipsFlavor flavor;
+    private ChipsFlavor flavor;
 
-    Chips() {
-    }
-    public Chips (ChipsFlavor flavor){
-        this.flavor=flavor;
+    public Chips(String name) {
+        super(name);
     }
 
-    public ChipsFlavor getFlavor(){
+    public Chips(ChipsFlavor flavor) {
+       this.flavor = flavor;
+        super("Chips");
+
+    }
+
+    public ChipsFlavor getFlavor() {
         return flavor;
     }
-    public void setFlavor(ChipsFlavor flavor){
-        this.flavor =flavor;
+
+    public void setFlavor(ChipsFlavor flavor) {
+        this.flavor = flavor;
     }
+
+
     @Override
     public double getPrice() {
         return 1.50;
     }
+
+
+    @Override
+    public String getReceiptLine() {
+        return flavor + " Chips - $ " + String.format ("%.2f", getPrice());
+    }
     @Override
     public String getName() {
-        return flavor+" $ "+getPrice();
+        return "";
     }
 
+    @Override
+    public double calculatePrice() {
+        return 0;
+    }
 
 }
+
+
+
 

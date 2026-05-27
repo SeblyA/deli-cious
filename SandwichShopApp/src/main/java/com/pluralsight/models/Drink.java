@@ -3,24 +3,37 @@ package com.pluralsight.models;
 import com.pluralsight.enums.DrinkFlavor;
 import com.pluralsight.enums.DrinkSize;
 
-
-
+//child class
 public class Drink  extends MenuItem {
     private DrinkFlavor flavor;
     private DrinkSize size;
-
-    public Drink(){
-    }
+public Drink() {
+    super ("Drink");
+    this.flavor = flavor;
+    this.size = size;
+}
 
     @Override
     public double getPrice() {
         return size.getDrinkPrice();
     }
 
+    @Override
+    public String getReceiptLine() {
+        return "";
+    }
+
     public String getName(){
         return this.size + " " + flavor ;
         }
-        public void setFlavor(int selection){
+
+    @Override
+    public double calculatePrice() {
+        return size.getDrinkPrice();
+    }
+
+
+    public void setFlavor(int selection){
         switch (selection) {
             case 1 -> this.flavor = DrinkFlavor.COKE;
             case 2-> this.flavor=DrinkFlavor.LEMONADE;
