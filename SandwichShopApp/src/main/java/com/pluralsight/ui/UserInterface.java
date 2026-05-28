@@ -6,10 +6,14 @@ import com.pluralsight.service.Helper;
 import com.pluralsight.service.ReceiptFileManager;
 import com.pluralsight.toppings.*;
 
+import java.util.List;
+
 import static com.pluralsight.service.Helper.*;
+import static com.pluralsight.toppings.Sides.sauce;
 
 public class UserInterface {
     Order order = new Order();
+
 
 
     public void StartMenu() {
@@ -33,10 +37,10 @@ public class UserInterface {
     }
 
     public void header() {
-        System.out.println(">>>>>>>>>>>>>>");
+        System.out.println(">===============<");
         System.out.println(" DELI-CIOUS " + "\n" +
                 "Sandwich Shop ");
-        IO.println(">>>>>>>>>>>>>>");
+        IO.println(">===============<");
     }
 
     public void homeScreen() {
@@ -60,8 +64,7 @@ public class UserInterface {
                 case 3 -> chipsScreen();
                 case 4 -> checkoutScreen();
                 case 0 ->homeScreen();
-
-                default -> throw new IllegalStateException("Unexpected value: " + choice);
+                default -> System.out.println("Invalid option please try again!");
             }
         } while (choice != 0 && choice != 4);
 

@@ -71,8 +71,9 @@ public class Sandwich extends MenuItem {
 
     @Override
     public String getReceiptLine() {
-        return size + " " + bread + " sandwich"
-                + "\nMeats: " + meats
+        return "\nSize:" +  size +
+               "\nBread Type:"+bread
+                + "\nMeat: " + meats
                 + "\nCheese: " + cheeses
                 + "\nToppings: " + regularToppings
                 + "\nSauces: " + sauces

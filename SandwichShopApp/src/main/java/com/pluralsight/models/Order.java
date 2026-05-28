@@ -20,7 +20,7 @@ public class Order {
         return items.stream().mapToDouble(MenuItem::getPrice).sum();
     }
 public String getReceiptText() {
-        StringBuilder details = new StringBuilder("Order Details:\n");
+        StringBuilder details = new StringBuilder("Order Details\n");
         for (MenuItem item : items) {
             details.append(item.getReceiptLine()).append("\n");
         }

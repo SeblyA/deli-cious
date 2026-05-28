@@ -4,6 +4,7 @@ import com.pluralsight.enums.DrinkSize;
 
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import static java.time.chrono.JapaneseEra.values;
@@ -58,12 +59,28 @@ public class Helper {
     }
     public static <T extends Enum<T>> T getEnum(Class<T> enumClass, int input) {
         T[] values = enumClass.getEnumConstants();
+        while (true) {
 
-        if (input < 1 || input > values.length) {
-            throw new IllegalArgumentException("Invalid selection");
+            if (input < 1 || input > values.length) {
+                System.out.println("Invalid input please try again.");
+            }
+            return values[input - 1];
         }
-
-        return values[input - 1];
     }
+
+
+    public static List<Integer> readIntegerList(String prompt) {
+        while (true) {
+            try{
+                return Arrays.stream(readString(prompt).split(","))
+                        .map(String::trim)
+                        .map(Integer::parseInt)
+                        .toList();
+            }catch (NumberFormatException e){
+                System.out.println("Please enter a valid number, for example 1,2,3");
+            }
+        }
+    }
+
 }
 

@@ -33,7 +33,7 @@ public class Chips extends MenuItem {
 
     @Override
     public String getReceiptLine() {
-        return flavor + " Chips - $ " + String.format ("%.2f", getPrice());
+        return flavor + " Chips: $ " + String.format ("%.2f", getPrice());
     }
 
 
