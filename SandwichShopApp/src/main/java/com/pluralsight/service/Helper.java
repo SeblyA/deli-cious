@@ -4,20 +4,13 @@ import com.pluralsight.enums.DrinkSize;
 
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
-import static java.lang.Enum.valueOf;
+import static java.time.chrono.JapaneseEra.values;
 
 public class Helper {
 
-    public static <T extends Enum<T>>
-    T getEnumChoice(Class<T> enumClass) {
-        String input = scanner.nextLine().trim();
-        return Enum.valueOf(enumClass, input.toUpperCase()
-        );
-    }
-
+    //        SandwichSize size = Helper.getEnumChoice(SandwichSize.class);
     public static final Scanner scanner = new Scanner(System.in);
 
 
@@ -55,22 +48,15 @@ public class Helper {
         //    readString("Enter choice to continue: ");
     }
 
-    public static void displayOption(List<?> items) {
-        for (int i = 0; i < items.size(); i++) {
-            System.out.println((i + 1) + ") " + items.get(i));
-        }
-        String input = scanner.nextLine();
-        try {
+    public static <T extends Enum<T>> Enum<T> displayhelper(Class<T> enumClass) {
 
-        //    DrinkSize selectedSize = Enum.valueOf(input.toUpperCase());
-        } catch (IllegalArgumentException e) {
-            System.out.println("Invalid option!");
-            System.out.println(Arrays.toString(DrinkSize.values()));
+        T[] items = enumClass.getEnumConstants();
+        for (int i = 0; i < items.length; i++) {
+            System.out.println((i + 1) + ") " + items[i]);
+
         }
 
+        return items[items.length - 1];
     }
 }
-
-
-
 

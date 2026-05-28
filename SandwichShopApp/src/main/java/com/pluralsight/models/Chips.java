@@ -20,7 +20,7 @@ public class Chips extends MenuItem {
         return flavor;
     }
 
-    public void setFlavor(ChipsFlavor flavor) {
+    public void setFlavor(ChipsFlavor flavor ) {
         this.flavor = flavor;
     }
 
@@ -40,9 +40,10 @@ public class Chips extends MenuItem {
         return "";
     }
 
+
     @Override
-    public double calculatePrice() {
-        return 0;
+    public void setSize(int size) {
+
     }
 
 }

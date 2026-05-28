@@ -10,7 +10,4 @@ public enum Sauce {
     THOUSAND_ISLANDS,
     VINAIGRETTE;
 
-    public static void displayOption() {
-        System.out.println(Arrays.toString(values()));
-    }
 }

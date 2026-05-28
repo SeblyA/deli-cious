@@ -3,7 +3,7 @@ package com.pluralsight.toppings;
 import java.util.Arrays;
 
 public enum RegularTopping {
-lettuce,
+   lettuce,
     peppers,
     onions,
     tomatoes,
@@ -13,8 +13,6 @@ lettuce,
     guacamole,
     mushrooms;
 
-    public static void displayOption() {
-        System.out.println(Arrays.toString(values()));
-    }
+
 
 }

@@ -7,7 +7,4 @@ public enum ChipsFlavor {
     Original,
     Ranch;
 
-    public static void displayOption() {
-        System.out.println(Arrays.toString(values()));
-    }
 }

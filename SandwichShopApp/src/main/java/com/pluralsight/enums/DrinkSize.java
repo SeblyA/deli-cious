@@ -1,5 +1,7 @@
 package com.pluralsight.enums;
 
+import com.pluralsight.service.Helper;
+
 import java.util.Arrays;
 
 public enum DrinkSize {
@@ -13,7 +15,7 @@ public enum DrinkSize {
     public double getDrinkPrice(){
         return drinkPrice;
     }
-    public static void displayOption() {
-        System.out.println(Arrays.toString(values()));
-    }
+
+
+
 }

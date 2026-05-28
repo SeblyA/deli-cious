@@ -12,10 +12,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class ReceiptFileManager {
-    public static void saveReceipt(Order order) {
+    public static void saveReceipt(Order order ) {
 
         try {
-            File folder = new File("receipts");
+            File folder = new File("receipt.txt");
             if (!folder.exists()) {
                 folder.mkdir();
 

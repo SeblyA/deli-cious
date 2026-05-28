@@ -7,8 +7,10 @@ import com.pluralsight.service.ReceiptFileManager;
 import com.pluralsight.toppings.*;
 
 
+import java.util.Scanner;
+
+
 import static com.pluralsight.service.Helper.*;
-import static com.pluralsight.service.ReceiptFileManager.saveReceipt;
 import static java.util.Arrays.stream;
 
 public class UserInterface {
@@ -50,7 +52,7 @@ public class UserInterface {
     }
 
     public void orderScreen() {
-        Order order = new Order();
+
         int choice;
         do {
             IO.println("1)Add Sandwich)");
@@ -63,13 +65,18 @@ public class UserInterface {
                 case 1 -> sandwichScreen();
                 case 2 -> drinkScreen();
                 case 3 -> chipsScreen();
-                case 4 -> checkoutScreen();
+                case 4 ->checkoutScreen();
+                case 0 ->homeScreen();
+
+                default -> throw new IllegalStateException("Unexpected value: " + choice);
             }
         } while (choice != 0 && choice != 4);
 
     }
 
     public void sandwichScreen() {
+        Sandwich sandwich = new Sandwich();
+
         // LOOP enum object
         //customize sandwich
 //        SandwichSize size = Helper.getEnumChoice(SandwichSize.class);
@@ -96,10 +103,10 @@ public class UserInterface {
     public void drinkScreen() {
         DrinkSize.displayOption();
         IO.println("choose drink size: ");
-        String input = scanner.nextLine().trim();
-        IO.println();
+        int input = scanner.nextInt();
+        drink.setSize(input);
 
-        DrinkFlavor.displayOption();
+        Helper.displayhelper(DrinkFlavor.class);
         IO.print("choose drink flavor: ");
         input = scanner.nextLine().trim();
         Drink drink = new Drink();
@@ -108,10 +115,12 @@ public class UserInterface {
     }
 
     public void chipsScreen() {
-        ChipsFlavor.displayOption();
+        Chips chip = new Chips("chips");
+        Helper.displayhelper(ChipsFlavor.class);
         IO.println("choose chips flavor: ");
-        String input = scanner.nextLine().trim();
-        Chips chip = new Chips("name");
+       int input = scanner.nextInt();
+       ChipsFlavor flavors = ChipsFlavor.values()[input - 1];
+        chip.setFlavor(flavors);
         order.addItem(chip);
 
     }
@@ -120,13 +129,16 @@ public class UserInterface {
         System.out.println(order.getReceiptText());
         String answer = readString("Confirm order? yes/no: ");
         if (answer.equalsIgnoreCase("yes")) {
-            saveReceipt(order);
-            System.out.println("Order completed!");
+            ReceiptFileManager.saveReceipt(order);
+            System.out.println(" Order completed!");
         } else {
             System.out.println("Order canceled.");
         }
     }
 }
+
+
+
 
 
 

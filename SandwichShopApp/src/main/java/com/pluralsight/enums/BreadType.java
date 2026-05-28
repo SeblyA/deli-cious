@@ -10,7 +10,4 @@ public  enum BreadType {
     RYE,
     WRAP;
 
-    public static void displayOption() {
-        System.out.println(Arrays.toString(values()));
-    }
 }

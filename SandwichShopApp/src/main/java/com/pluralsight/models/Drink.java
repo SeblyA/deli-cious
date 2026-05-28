@@ -2,13 +2,15 @@ package com.pluralsight.models;
 
 import com.pluralsight.enums.DrinkFlavor;
 import com.pluralsight.enums.DrinkSize;
+import com.pluralsight.interfaces.Priceable;
 
 //child class
-public class Drink  extends MenuItem {
+public class Drink extends MenuItem {
     private DrinkFlavor flavor;
     private DrinkSize size;
 public Drink() {
-    super ("Drink");
+    super("");
+
     this.flavor = flavor;
     this.size = size;
 }
@@ -22,6 +24,7 @@ public Drink() {
     public String getReceiptLine() {
         return "";
     }
+
 
     public String getName(){
         return this.size + " " + flavor ;
@@ -50,7 +53,16 @@ public Drink() {
                 default -> IO.println("Invalid Size Selection");
             }
         }
+    @Override
+    public String toString() {
+        return "Drink " +
+                "flavor=" + flavor +
+                ", size=" + size ;
     }
+
+
+
+}
 
 
 

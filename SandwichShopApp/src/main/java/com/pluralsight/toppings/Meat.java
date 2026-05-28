@@ -10,8 +10,6 @@ public enum Meat {
     CHICKEN,
     BACON;
 
-    public static void displayOption() {
-        System.out.println(Arrays.toString(values()));
-    }
+
 
 }

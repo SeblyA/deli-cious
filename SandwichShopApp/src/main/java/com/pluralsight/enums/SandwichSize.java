@@ -8,6 +8,7 @@ public enum SandwichSize  {
     Four(4,5.50,1.00,.50,.70,.30),
     Eight(8,7.00,2.00,1.00,1.50,.60),
     Twelve(12,8.50,3.00,1.50,2.25,.90);
+
 private final int inches;
 private final double basePrice;
 private final double meatPrice;
@@ -16,6 +17,7 @@ private final double cheesePrice;
 private final double extraCheesePrice;
 
     SandwichSize(int inches,double basePrice,double meatPrice,double extraMeatPrice,double cheesePrice,double extraCheesePrice) {
+
         this.inches = inches;
         this.basePrice=basePrice;
         this.meatPrice=meatPrice;
@@ -23,7 +25,11 @@ private final double extraCheesePrice;
         this.cheesePrice=cheesePrice;
         this.extraCheesePrice=extraCheesePrice;
     }
+
     public int getInches() {
+        return inches;
+    }
+    public int setInches() {
         return inches;
     }
 
@@ -47,9 +53,6 @@ private final double extraCheesePrice;
         return extraCheesePrice;
     }
 
-    public static void displayOption() {
-        System.out.println(Arrays.toString(values()));
-    }
 
 }
 

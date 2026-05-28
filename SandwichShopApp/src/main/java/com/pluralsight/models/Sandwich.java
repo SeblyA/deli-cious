@@ -7,8 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich extends MenuItem  {
+    private List <Integer> inputs= new ArrayList<>();
+    public void addInputs(int input){
+        inputs.add(input);
+    }
+
    private SandwichSize size;
     private BreadType bread;
+
 
 public Sandwich() {
     super ("Sandwich");
@@ -28,7 +34,9 @@ private boolean toasted;
 
 
     public void addSize(SandwichSize size){this.size=size;}
-    public void addBread(BreadType bread){this.bread=bread;}
+    public void addBread(BreadType bread){
+        this.bread=bread;
+    }
     public void addMeat(Meat meat) {
         meats.add(meat);
     }
@@ -59,7 +67,6 @@ private boolean toasted;
         return total;
     }
 
-
     public String  getName() {return size + " " +
             bread + " Sandwich " +
             regularToppings +
@@ -67,9 +74,11 @@ private boolean toasted;
 
     }
 
+
+
     @Override
-    public double calculatePrice() {
-        return 0;
+    public void setSize(int size) {
+
     }
 
     @Override
@@ -79,7 +88,6 @@ private boolean toasted;
                 + "\nCheese: " + cheeses
                 + "\nToppings: " + regularToppings
                 + "\nSauces: " + sauces
-                + "\nToasted: " + toasted
                 + "\nPrice: $" + String.format("%.2f",getPrice());
     }
 

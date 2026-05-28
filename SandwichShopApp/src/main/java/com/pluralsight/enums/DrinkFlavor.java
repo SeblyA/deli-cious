@@ -8,9 +8,6 @@ public enum DrinkFlavor {
     SWEET_TEA,
     ROOT_BEER;
 
-    public static void displayOption() {
-        System.out.println(Arrays.toString(values()));
-    }
 }
 
 
