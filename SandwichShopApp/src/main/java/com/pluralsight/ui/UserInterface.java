@@ -6,15 +6,14 @@ import com.pluralsight.service.Helper;
 import com.pluralsight.service.ReceiptFileManager;
 import com.pluralsight.toppings.*;
 
-
-import java.util.Scanner;
-
+import java.util.List;
 
 import static com.pluralsight.service.Helper.*;
-import static java.util.Arrays.stream;
+import static com.pluralsight.toppings.Sides.sauce;
 
 public class UserInterface {
     Order order = new Order();
+
 
 
     public void StartMenu() {
@@ -27,8 +26,6 @@ public class UserInterface {
                 case 1:
                     orderScreen();
                     break;
-                case 2:
-                    drinkScreen();
                 case 0:
                     System.out.println("Good Bye!");
                     break;
@@ -40,10 +37,10 @@ public class UserInterface {
     }
 
     public void header() {
-        System.out.println(">>>>>>>>>>>>>>");
+        System.out.println(">===============<");
         System.out.println(" DELI-CIOUS " + "\n" +
                 "Sandwich Shop ");
-        IO.println(">>>>>>>>>>>>>>");
+        IO.println(">===============<");
     }
 
     public void homeScreen() {
@@ -65,10 +62,9 @@ public class UserInterface {
                 case 1 -> sandwichScreen();
                 case 2 -> drinkScreen();
                 case 3 -> chipsScreen();
-                case 4 ->checkoutScreen();
+                case 4 -> checkoutScreen();
                 case 0 ->homeScreen();
-
-                default -> throw new IllegalStateException("Unexpected value: " + choice);
+                default -> System.out.println("Invalid option please try again!");
             }
         } while (choice != 0 && choice != 4);
 
@@ -106,7 +102,7 @@ public class UserInterface {
         int input = scanner.nextInt();
         drink.setSize(input);
 
-        Helper.displayhelper(DrinkFlavor.class);
+        Helper.displayHelper(DrinkFlavor.class);
         IO.print("choose drink flavor: ");
         input = scanner.nextLine().trim();
         Drink drink = new Drink();
@@ -116,16 +112,16 @@ public class UserInterface {
 
     public void chipsScreen() {
         Chips chip = new Chips("chips");
-        Helper.displayhelper(ChipsFlavor.class);
+        Helper.displayHelper(ChipsFlavor.class);
         IO.println("choose chips flavor: ");
        int input = scanner.nextInt();
-       ChipsFlavor flavors = ChipsFlavor.values()[input - 1];
+       ChipsFlavor flavors = Helper.getEnum(ChipsFlavor.class,input );
         chip.setFlavor(flavors);
         order.addItem(chip);
 
     }
 
-    public void checkoutScreen() {
+    public  void checkoutScreen() {
         System.out.println(order.getReceiptText());
         String answer = readString("Confirm order? yes/no: ");
         if (answer.equalsIgnoreCase("yes")) {

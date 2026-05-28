@@ -5,14 +5,12 @@ import java.util.List;
 
 import static java.lang.String.format;
 
+
 public class Order {
 
-    private List<MenuItem> items ;
+    private final List<MenuItem> items= new ArrayList<>() ;
 
 
-    public Order() {
-        this.items = new ArrayList<>();
-    }
 
     public  void addItem(MenuItem item) {
         items.add(item);
@@ -22,11 +20,13 @@ public class Order {
         return items.stream().mapToDouble(MenuItem::getPrice).sum();
     }
 public String getReceiptText() {
-        StringBuilder details = new StringBuilder("Order Details:\n");
+        StringBuilder details = new StringBuilder("Order Details\n");
         for (MenuItem item : items) {
             details.append(item.getReceiptLine()).append("\n");
         }
-        details.append("Total Price: $"+format("%.2f")).append(getPrice());
+        details.append("Total Price: $")
+                .append(String.format( "%.2f",getPrice()))
+                 .append("\n");
         return details.toString();
     }
 

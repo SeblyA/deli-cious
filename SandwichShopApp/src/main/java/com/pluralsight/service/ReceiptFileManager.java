@@ -7,30 +7,39 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
+
+import static javax.swing.UIManager.get;
+
 
 public class ReceiptFileManager {
-    public static void saveReceipt(Order order ) {
 
+    public static void saveReceipt(Order order) {
         try {
-            File folder = new File("receipt.txt");
+            File folder = new File("Receipts");
             if (!folder.exists()) {
-                folder.mkdir();
-
+                folder.mkdirs();
             }
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
             String fileName = LocalDateTime.now().format(formatter) + ".txt";
             File file = new File(folder, fileName);
-            FileWriter writer = new FileWriter(file);
-            writer.write(order.getReceiptText());
-            writer.close();
-            System.out.println("Receipt saved: " + fileName);
-        } catch (IOException e) {
+            try (FileWriter writer = new FileWriter(file)) {
+                writer.write(order.getReceiptText());
 
+                System.out.println("Receipt saved: " + file.getAbsolutePath());
+            } catch (IOException e) {
+
+                System.out.println("Error saving receipt.");
+                e.printStackTrace();
+            }
+        }catch (Exception e){
             System.out.println("Error saving receipt.");
             e.printStackTrace();
         }
     }
 }
+
+

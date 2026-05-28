@@ -33,18 +33,9 @@ public class Chips extends MenuItem {
 
     @Override
     public String getReceiptLine() {
-        return flavor + " Chips - $ " + String.format ("%.2f", getPrice());
-    }
-    @Override
-    public String getName() {
-        return "";
+        return flavor + " Chips: $ " + String.format ("%.2f", getPrice());
     }
 
-
-    @Override
-    public void setSize(int size) {
-
-    }
 
 }
 
