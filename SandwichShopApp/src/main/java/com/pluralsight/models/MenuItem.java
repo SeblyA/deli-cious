@@ -4,16 +4,16 @@ import com.pluralsight.interfaces.Priceable;
 
 public abstract class MenuItem implements Priceable {
     //this is parent class
-private String name;
-public MenuItem(String name) {
-    this.name=name;
+private String receiptLine;
+public MenuItem(String receiptLine) {
+
 }
 public abstract double getPrice();
 
     public abstract String getReceiptLine();
 
-    public abstract String getName();
-    public abstract void setSize(int size);
+
+
 
     @Override
     public String toString() {

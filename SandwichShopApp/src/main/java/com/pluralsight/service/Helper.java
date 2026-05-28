@@ -48,15 +48,22 @@ public class Helper {
         //    readString("Enter choice to continue: ");
     }
 
-    public static <T extends Enum<T>> Enum<T> displayhelper(Class<T> enumClass) {
+    public static  <T extends Enum<T>>void  displayHelper(Class<T> enumClass) {
 
         T[] items = enumClass.getEnumConstants();
         for (int i = 0; i < items.length; i++) {
             System.out.println((i + 1) + ") " + items[i]);
 
         }
+    }
+    public static <T extends Enum<T>> T getEnum(Class<T> enumClass, int input) {
+        T[] values = enumClass.getEnumConstants();
 
-        return items[items.length - 1];
+        if (input < 1 || input > values.length) {
+            throw new IllegalArgumentException("Invalid selection");
+        }
+
+        return values[input - 1];
     }
 }
 

@@ -9,32 +9,17 @@ public class Drink extends MenuItem {
     private DrinkFlavor flavor;
     private DrinkSize size;
 public Drink() {
-    super("");
+    super("Drink");
 
-    this.flavor = flavor;
-    this.size = size;
 }
 
     @Override
     public double getPrice() {
-        return size.getDrinkPrice();
-    }
-
-    @Override
-    public String getReceiptLine() {
-        return "";
-    }
-
-
-    public String getName(){
-        return this.size + " " + flavor ;
+        if (size == null) {
+            return 0;
         }
-
-    @Override
-    public double calculatePrice() {
         return size.getDrinkPrice();
     }
-
 
     public void setFlavor(int selection){
         switch (selection) {
@@ -53,14 +38,11 @@ public Drink() {
                 default -> IO.println("Invalid Size Selection");
             }
         }
+
     @Override
-    public String toString() {
-        return "Drink " +
-                "flavor=" + flavor +
-                ", size=" + size ;
+    public String getReceiptLine() {
+        return size + " " + flavor + " - $" + String.format("%.2f", getPrice());
     }
-
-
 
 }
 

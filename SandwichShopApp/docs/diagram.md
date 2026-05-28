@@ -3,10 +3,10 @@
 | Real-world thing | Class  Name  | Properties                | Methods                   |
 |------------------|--------------|---------------------------|---------------------------|
 | A sandwich       | `Sandwich`   | size, bread, meat, cheese | getPrice()                |
-| A drink          | `Drink`      | size, flavor              | getPrice(), getSummary()  |
-| A bag of chips   | `ChipsOrder` | flavor, quantity          | getPrice(), getSummary()  |
+| A drink          | `Drink`      | size, flavor              | getPrice(), getLine()     |
+| A  chips         | `ChipsOrder` | flavor, quantity          | getPrice(), getLine()     |
 | A full order     | `Order`      | List~MenuItem~            | addItem(), printReceipt() |
-| Base item        | `MenuItem`   | name                      | getPrice(), getSummary()  |
+| Base item        | `MenuItem`   | name                      | getPrice(), getLine()     |
 classDiagram
 class Priceable {
 <<interface>>
@@ -147,3 +147,16 @@ class Priceable {
     Drink --> DrinkFlavor
     ChipsOrder --> Chips
     UserInterface --> Order
+
+
+User input
+↓
+Helper converts input → enum
+↓
+Sandwich stores enums
+↓
+getPrice() uses enums
+↓
+Order sums items
+↓
+Receipt prints total

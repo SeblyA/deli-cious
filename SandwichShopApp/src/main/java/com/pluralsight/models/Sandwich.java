@@ -6,90 +6,77 @@ import com.pluralsight.toppings.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sandwich extends MenuItem  {
-    private List <Integer> inputs= new ArrayList<>();
-    public void addInputs(int input){
-        inputs.add(input);
-    }
-
-   private SandwichSize size;
+public class Sandwich extends MenuItem {
+    private SandwichSize size;
     private BreadType bread;
 
+    private List<Meat> meats = new ArrayList<>();
+    private List<Cheese> cheeses = new ArrayList<>();
+    private List<RegularTopping> regularToppings = new ArrayList<>();
+    private List<Sauce> sauces = new ArrayList<>();
+    private List<Sides> sides = new ArrayList<>();
 
-public Sandwich() {
-    super ("Sandwich");
-    this.size = size;
-    this.bread = bread;
-}
+    private boolean extraMeat;
+    private boolean extraCheese;
 
-    private List<Meat> meats=new ArrayList<>();
-    private List<Cheese>cheeses=new ArrayList<>();
-    private List<RegularTopping>regularToppings = new ArrayList<>();
-    private List<Sauce>sauces=new ArrayList<>();
-    private List <Sides> sides=new ArrayList<>();
-
-private boolean extraMeat;
-private boolean extraCheese;
-private boolean toasted;
-
-
-    public void addSize(SandwichSize size){this.size=size;}
-    public void addBread(BreadType bread){
-        this.bread=bread;
+    public Sandwich() {
+        super("Sandwich");
     }
+
+
+    public void setSize(SandwichSize size) {
+        this.size = size;
+    }
+
+    public void setBread(BreadType bread) {
+        this.bread = bread;
+    }
+
     public void addMeat(Meat meat) {
         meats.add(meat);
     }
+
     public void addCheese(Cheese cheese) {
         cheeses.add(cheese);
     }
+
     public void addRegularTopping(RegularTopping regularTopping) {
         regularToppings.add(regularTopping);
     }
+
     public void addSauce(Sauce sauce) {
         sauces.add(sauce);
     }
+
     public void addSides(Sides sides) {
         this.sides.add(sides);
     }
 
     @Override
     public double getPrice() {
-        double total=size.getBasePrice();
-        total +=meats.size()*size.getMeatPrice();
-        total +=cheeses.size()*size.getCheesePrice();
-     if(extraMeat){
-         total +=size.getExtraMeatPrice();
-     }
-     if(extraCheese){
-         total +=size.getExtraCheesePrice();
-     }
+        if (size == null) {
+            return 0;
+        }
+        double total = size.getBasePrice();
+        total += meats.size() * size.getMeatPrice();
+        total += cheeses.size() * size.getCheesePrice();
+        if (extraMeat) {
+            total += size.getExtraMeatPrice();
+        }
+        if (extraCheese) {
+            total += size.getExtraCheesePrice();
+        }
         return total;
-    }
-
-    public String  getName() {return size + " " +
-            bread + " Sandwich " +
-            regularToppings +
-            " $" + getPrice();
-
-    }
-
-
-
-    @Override
-    public void setSize(int size) {
-
     }
 
     @Override
     public String getReceiptLine() {
-         return size + "\" " + bread + " sandwich"
+        return size + " " + bread + " sandwich"
                 + "\nMeats: " + meats
                 + "\nCheese: " + cheeses
                 + "\nToppings: " + regularToppings
                 + "\nSauces: " + sauces
-                + "\nPrice: $" + String.format("%.2f",getPrice());
+                + "\nPrice: $" + String.format("%.2f", getPrice());
     }
-
-
 }
+
