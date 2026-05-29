@@ -10,7 +10,6 @@ public class Drink extends MenuItem {
 
     public Drink() {
         super("Drink");
-
     }
 
     @Override

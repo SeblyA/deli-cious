@@ -32,7 +32,6 @@ public class ReceiptFileManager {
                 String receiptText = order.getReceiptText();//get receipt text
 
                 System.out.println(receiptText);
-
                 try (FileWriter writer = new FileWriter(file)) {
 
                     //write receipt text to file

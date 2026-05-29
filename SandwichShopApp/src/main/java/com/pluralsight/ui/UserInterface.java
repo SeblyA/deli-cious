@@ -175,9 +175,7 @@ public class UserInterface {
        ChipsFlavor flavor =Helper.getEnum(ChipsFlavor.class ,input);
        chip.setFlavor(flavor);
         order.addItem(chip);
-
     }
-
     public void checkoutScreen() {
         System.out.println(order.getReceiptText());
         String answer = readString("Confirm order? yes/no: ");

@@ -13,7 +13,6 @@ public class Chips extends MenuItem {
     public Chips(ChipsFlavor flavor) {
        this.flavor = flavor;
         super("Chips");
-
     }
 
     public ChipsFlavor getFlavor() {

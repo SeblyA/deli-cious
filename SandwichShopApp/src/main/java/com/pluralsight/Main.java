@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-
 import com.pluralsight.enums.SandwichSize;
 import com.pluralsight.ui.UserInterface;
 
@@ -8,10 +7,7 @@ import com.pluralsight.ui.UserInterface;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
         UserInterface ui = new UserInterface();
         ui.StartMenu();
-
     }
 }

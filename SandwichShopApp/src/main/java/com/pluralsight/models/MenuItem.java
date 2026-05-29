@@ -6,7 +6,6 @@ public abstract class MenuItem implements Priceable {
     //this is parent class
     private String receiptLine;
 public MenuItem(String  receiptLine) {
-
 }
 public abstract double getPrice();
 
