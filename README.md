@@ -24,7 +24,8 @@ Checkout system with receipt generation
 Save receipt to file   
 Input validation for all menu selection  
 
->=====================< 
+>=====================<
+>
 DELI-CIOUS Sandwich Shop 
 >=====================<
 
