@@ -1,0 +1,3 @@
+Order Details:
+Drink{flavor=COKE, size=SMALL}
+Total Price: $2.0

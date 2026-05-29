@@ -1,0 +1,12 @@
+Order Details:
+
+Size:Four
+Bread Type:WHITE
+Meat: [STEAK, SALAMI]
+Cheese: [AMERICAN]
+Toppings: [lettuce]
+Sauces: [MAYO]
+Price: $8.20
+SMALL LEMONADE: $2.00
+BBQ Chips: $ 1.50
+Total Price: $11.70

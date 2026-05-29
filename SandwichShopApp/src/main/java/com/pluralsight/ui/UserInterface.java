@@ -41,10 +41,10 @@ public class UserInterface {
     }
 
     public void header() {
-        System.out.println(">>>>>>>>>>>>>>");
-        System.out.println(" DELI-CIOUS " + "\n" +
-                "Sandwich Shop ");
-        IO.println(">>>>>>>>>>>>>>");
+        System.out.println(">===================<");
+        System.out.println("    DELI-CIOUS " + "\n" +
+                "    Sandwich Shop ");
+        IO.println(">===================<");
     }
 
     public void homeScreen() {
@@ -80,32 +80,83 @@ public class UserInterface {
 
         // LOOP enum object
         //customize sandwich
-//        SandwichSize size = Helper.getEnumChoice(SandwichSize.class);
-        SandwichSize size = null;
-        int choice = readInt("choose an option: ");
+        System.out.println("==Bread Options==");
+        Helper.displayHelper(BreadType.class);
+        System.out.println("-------------------");
+        int breadInput=Helper.readInt("Select your bread:  ");
 
-        if (choice >= 1 && choice <= SandwichSize.values().length) { size= SandwichSize.values()[choice - 1]; }
+        BreadType bread = Helper.getEnum(BreadType.class,breadInput );;
+        sandwich.setBread(bread);
 
-        Sandwich sand = new Sandwich();
-        sand.addSize(size);
-        BreadType bread = getEnumChoice(BreadType.class);
-        sand.addBread(bread);
-        Meat meat = getEnumChoice(Meat.class);
-        sand.addMeat(meat);
-        Cheese cheese = getEnumChoice(Cheese.class);
-        sand.addCheese(cheese);
-        RegularTopping regularTopping = getEnumChoice(RegularTopping.class);
-        sand.addRegularTopping(regularTopping);
-        Sauce sauce = getEnumChoice(Sauce.class);
-        sand.addSauce(sauce);
-        order .addItem(sand);
+        IO.println("==Sandwich Size(4\",8\",12\") ");
+        Helper.displayHelper(SandwichSize.class);
+        System.out.println("-------------------");
+        System.out.println("choose sandwich size: ");
+        int input = scanner.nextInt();
+        SandwichSize size= Helper.getEnum(SandwichSize.class,input );
+        sandwich.setSize(size);
+
+        // selectedBread is an object
+        //meat
+        IO.println("==Meat== ");
+        Helper.displayHelper(Meat.class);
+        System.out.println("-------------------");
+        List<Integer> meatInputs = Helper.readIntegerList ("choose meat: ");
+        for (int mInput :meatInputs) {
+            Meat meat = Helper.getEnum(Meat.class, mInput);
+            sandwich.addMeat(meat);
+        }
+        //cheese
+        IO.println("==Cheese== ");
+        Helper.displayHelper(Cheese.class);
+        System.out.println("-------------------");
+        List<Integer> cheeseInputs = Helper.readIntegerList ("choose Cheese: ");
+        for(int cInput :cheeseInputs) {
+            Cheese cheese = Helper.getEnum(Cheese.class, cInput);
+            sandwich.addCheese(cheese);
+        }
+
+        // Prompt regular Topping
+        IO.println("==Toppings==");
+        Helper.displayHelper(RegularTopping.class);
+        System.out.println("-------------------");
+        List<Integer> toppingInputs = Helper.readIntegerList ("choose other toppings: ");
+        for(int tInput :toppingInputs) {
+            RegularTopping topping = Helper.getEnum(RegularTopping.class, tInput);
+            sandwich.addRegularTopping(topping);
+        }
+        //sauce
+        IO.println("==Sauce==");
+        Helper.displayHelper(Sauce.class);
+        System.out.println("-------------------");
+        List<Integer> sauceInputs = Helper.readIntegerList ("choose sauce: ");
+        for(int sInput :sauceInputs) {
+            Sauce sauce = Helper.getEnum(Sauce.class, sInput);
+            sandwich.addSauce(sauce);
+        }
+        IO.println("==Sides==");
+        Helper.displayHelper(Sides.class);
+        System.out.println("-------------------");
+        List<Integer> sidesInputs = Helper.readIntegerList ("choose side: ");
+        for(int sInput :sidesInputs) {
+            Sides sides = Helper.getEnum(Sides.class, sInput);
+            sandwich.addSides(sides);
+        }
+
+
+        String choice=Helper.readString("Would you like the sandwich toasted? Yes/No ");
+        order.addItem(sandwich);
+        IO.println(" Sandwich added!");
     }
 
     public void drinkScreen() {
-        DrinkSize.displayOption();
-        IO.println("choose drink size: ");
-        int input = scanner.nextInt();
-        drink.setSize(input);
+        Drink drink = new Drink();
+        IO.println("==Drink Size==");
+        Helper.displayHelper(DrinkSize.class);
+        System.out.println("-------------------");
+        int input= Helper.readInt("choose drink size: ");
+        DrinkSize size =Helper.getEnum(DrinkSize.class,input );
+        drink.setSize(size);
 
         IO.println("==Drink Flavor==");
         Helper.displayHelper(DrinkFlavor.class);
@@ -114,7 +165,6 @@ public class UserInterface {
         DrinkFlavor flavor= Helper.getEnum(DrinkFlavor.class, dInput);
         drink.setFlavor(flavor);
         order.addItem(drink);
-
     }
     public void chipsScreen() {
         Chips chip = new Chips("chips");

@@ -1,0 +1,10 @@
+Order Details:
+
+Size:Eight
+Bread Type:WHITE
+Meat: [HAM, SALAMI]
+Cheese: [CHEDDAR]
+Toppings: [onions]
+Sauces: [MUSTARD]
+Price: $12.50
+Total Price: $12.50

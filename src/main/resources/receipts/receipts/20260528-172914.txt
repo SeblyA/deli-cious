@@ -1,0 +1,12 @@
+Order Details:
+SMALL LEMONADE: $2.00
+BBQ Chips: $ 1.50
+
+Size:Four
+Bread Type:WHITE
+Meat: [STEAK]
+Cheese: [AMERICAN]
+Toppings: [peppers]
+Sauces: [MUSTARD, KETCHUP]
+Price: $7.20
+Total Price: $10.70

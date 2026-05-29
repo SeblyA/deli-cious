@@ -6,7 +6,4 @@ public enum Sides {
 
     au_jus,
     sauce;
-    public static void displayOption() {
-        System.out.println(Arrays.toString(values()));
-    }
 }

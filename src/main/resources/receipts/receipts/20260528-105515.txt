@@ -1,0 +1,12 @@
+Order Details:
+
+Size:Eight
+Bread Type:WHEAT
+Meat: [SALAMI]
+Cheese: [AMERICAN]
+Toppings: [peppers]
+Sauces: [MUSTARD]
+Price: $10.50
+SMALL LEMONADE - $2.00
+Ranch Chips - $ 1.50
+Total Price: $14.00

@@ -22,13 +22,15 @@ public class Order {
         return items.stream().mapToDouble(MenuItem::getPrice).sum();
     }
 public String getReceiptText() {
-        StringBuilder details = new StringBuilder("Order Details:\n");
+
+        StringBuilder details = new StringBuilder("\n====Receipt===\n");
         for (MenuItem item : items) {
             details.append(item.getReceiptLine()).append("\n");
         }
+        details.append("---------------------\n");
         details.append("Total Price: $")
                 .append(String.format("%.2f",getPrice()))
-                .append("\n");
+                .append("\n===================\n");
         return details.toString();
     }
 

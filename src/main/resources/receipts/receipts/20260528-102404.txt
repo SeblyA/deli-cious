@@ -1,0 +1,8 @@
+Order Details:
+Four WHITE sandwich
+Meats: [STEAK]
+Cheese: [AMERICAN]
+Toppings: [lettuce]
+Sauces: [KETCHUP]
+Price: $7.20
+Total Price: $7.20

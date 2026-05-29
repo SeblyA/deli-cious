@@ -1,0 +1,10 @@
+Order Details:
+
+Size:Four
+Bread Type:WHITE
+Meat: [STEAK]
+Cheese: [AMERICAN]
+Toppings: [lettuce]
+Sauces: [MAYO]
+Price: $7.20
+Total Price: $7.20
