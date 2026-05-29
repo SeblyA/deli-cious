@@ -92,7 +92,7 @@ public class UserInterface {
         IO.println("===Sandwich Size(4\",8\",12\")=== ");
         Helper.displayHelper(SandwichSize.class);
         System.out.println("-------------------");
-        System.out.println("choose sandwich size: ");
+        System.out.print("choose sandwich size: ");
         int input = scanner.nextInt();
         SandwichSize size= Helper.getEnum(SandwichSize.class,input );
         sandwich.setSize(size);
@@ -101,7 +101,7 @@ public class UserInterface {
         IO.println("=====Meat===== ");
         Helper.displayHelper(Meat.class);
         System.out.println("-------------------");
-        List<Integer> meatInputs = Helper.readIntegerList ("choose meat: ");
+        List<Integer> meatInputs = Helper.readIntegerList ("choose Meat(1,2,3): ");
         for (int mInput :meatInputs) {
             Meat meat = Helper.getEnum(Meat.class, mInput);
             sandwich.addMeat(meat);
@@ -110,7 +110,7 @@ public class UserInterface {
         IO.println("======Cheese====== ");
         Helper.displayHelper(Cheese.class);
         System.out.println("-------------------");
-        List<Integer> cheeseInputs = Helper.readIntegerList ("choose Cheese: ");
+        List<Integer> cheeseInputs = Helper.readIntegerList ("choose Cheese(1,2,3): ");
         for(int cInput :cheeseInputs) {
             Cheese cheese = Helper.getEnum(Cheese.class, cInput);
             sandwich.addCheese(cheese);
@@ -120,7 +120,7 @@ public class UserInterface {
         IO.println("======Toppings======");
         Helper.displayHelper(RegularTopping.class);
         System.out.println("-------------------");
-        List<Integer> toppingInputs = Helper.readIntegerList ("choose other toppings: ");
+        List<Integer> toppingInputs = Helper.readIntegerList ("choose other toppings(1,2,3): ");
         for(int tInput :toppingInputs) {
             RegularTopping topping = Helper.getEnum(RegularTopping.class, tInput);
             sandwich.addRegularTopping(topping);
@@ -129,7 +129,7 @@ public class UserInterface {
         IO.println("=====Sauce=====");
         Helper.displayHelper(Sauce.class);
         System.out.println("-------------------");
-        List<Integer> sauceInputs = Helper.readIntegerList ("choose sauce: ");
+        List<Integer> sauceInputs = Helper.readIntegerList ("choose sauce(1,2,3): ");
         for(int sInput :sauceInputs) {
             Sauce sauce = Helper.getEnum(Sauce.class, sInput);
             sandwich.addSauce(sauce);
@@ -137,7 +137,7 @@ public class UserInterface {
         IO.println("======Sides======");
         Helper.displayHelper(Sides.class);
         System.out.println("-------------------");
-        List<Integer> sidesInputs = Helper.readIntegerList ("choose side: ");
+        List<Integer> sidesInputs = Helper.readIntegerList ("choose side(1,2): ");
         for(int sInput :sidesInputs) {
             Sides sides = Helper.getEnum(Sides.class, sInput);
             sandwich.addSides(sides);
@@ -146,7 +146,7 @@ public class UserInterface {
 
         String choice=Helper.readString("Would you like the sandwich toasted? Yes/No ");
         order.addItem(sandwich);
-        IO.println(" Sandwich added!");
+        IO.println("☑\uFE0F Sandwich added!");
     }
 
     public void drinkScreen() {

@@ -10,6 +10,4 @@ public enum Meat {
     CHICKEN,
     BACON;
 
-
-
 }

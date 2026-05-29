@@ -66,7 +66,7 @@ private boolean extraCheese;
     @Override
     public String getReceiptLine() {
         return "\nSize:" +  size +
-                "\nBread Type:"+bread
+                "\nBreadType:"+bread
                 + "\nMeat: " + meats
                 + "\nCheese: " + cheeses
                 + "\nToppings: " + regularToppings

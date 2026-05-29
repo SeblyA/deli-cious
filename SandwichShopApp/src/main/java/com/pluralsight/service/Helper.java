@@ -15,16 +15,15 @@ public class Helper {
 
     public static String readString(String prompt) {
         System.out.print(prompt);
-        return scanner.nextLine().trim();
+        return scanner.nextLine();
     }
 
     // keep asking until right input don't break code
     // if user enter sting while number expected run the code until number input
     public static int readInt(String prompt) {
         while (true) {
-            String input = readString(prompt);
             try {
-                return Integer.parseInt(input);
+                return Integer.parseInt(readString(prompt));
             } catch (NumberFormatException e) {
                 System.out.println(" Invalid input");
             }
@@ -49,7 +48,6 @@ public class Helper {
 
     public static List<Integer> readIntegerList(String prompt) {
         while (true) {
-
             try {
                 return Arrays.stream(readString(prompt).split(","))
                         .map(String::trim)
@@ -57,7 +55,6 @@ public class Helper {
                         .toList();
             } catch (NumberFormatException e) {
                 System.out.println(" Invalid input");
-
             }
         }
     }

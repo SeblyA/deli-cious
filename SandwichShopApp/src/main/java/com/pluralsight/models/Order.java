@@ -7,21 +7,22 @@ import static java.lang.String.format;
 
 public class Order {
 
-    private List<MenuItem> items ;
+    private List<MenuItem> items;
 
 
     public Order() {
         this.items = new ArrayList<>();
     }
 
-    public  void addItem(MenuItem item) {
+    public void addItem(MenuItem item) {
         items.add(item);
     }
 
     public double getPrice() {
         return items.stream().mapToDouble(MenuItem::getPrice).sum();
     }
-public String getReceiptText() {
+
+    public String getReceiptText() {
 
         StringBuilder details = new StringBuilder("\n====Receipt===\n");
         for (MenuItem item : items) {
@@ -29,18 +30,12 @@ public String getReceiptText() {
         }
         details.append("---------------------\n");
         details.append("Total Price: $")
-                .append(String.format("%.2f",getPrice()))
+                .append(String.format("%.2f", getPrice()))
                 .append("\n===================\n");
         return details.toString();
     }
 
-
-
 }
-  //  public void removeItem(int i) {
-      //  IO.println(this.menuItems. (i - 1).getName() + "Removed");
-   //     this.menuItems.remove(i - 1);
-
 
 
 
