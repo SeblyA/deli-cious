@@ -7,5 +7,4 @@ public enum Cheese {
     PROVOLONE,
     CHEDDAR,
     SWISS;
-
 }

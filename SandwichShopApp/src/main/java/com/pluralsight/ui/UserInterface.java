@@ -7,6 +7,7 @@ import com.pluralsight.service.ReceiptFileManager;
 import com.pluralsight.toppings.*;
 
 
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -60,7 +61,7 @@ public class UserInterface {
             IO.println("3)Add Chips");
             IO.println("4)Checkout");
             IO.println("0)Cancel Order");
-            choice = readInt("choose an option: ");
+             choice = readInt("choose an option: ");
             switch (choice) {
                 case 1 -> sandwichScreen();
                 case 2 -> drinkScreen();
@@ -106,21 +107,22 @@ public class UserInterface {
         int input = scanner.nextInt();
         drink.setSize(input);
 
-        Helper.displayhelper(DrinkFlavor.class);
-        IO.print("choose drink flavor: ");
-        input = scanner.nextLine().trim();
-        Drink drink = new Drink();
+        IO.println("==Drink Flavor==");
+        Helper.displayHelper(DrinkFlavor.class);
+        System.out.println("-------------------");
+        int dInput =Helper.readInt ("choose drink flavor: ");
+        DrinkFlavor flavor= Helper.getEnum(DrinkFlavor.class, dInput);
+        drink.setFlavor(flavor);
         order.addItem(drink);
 
     }
-
     public void chipsScreen() {
         Chips chip = new Chips("chips");
-        Helper.displayhelper(ChipsFlavor.class);
-        IO.println("choose chips flavor: ");
-       int input = scanner.nextInt();
-       ChipsFlavor flavors = ChipsFlavor.values()[input - 1];
-        chip.setFlavor(flavors);
+        Helper.displayHelper(ChipsFlavor.class);
+        System.out.println("-------------------");
+       int input= Helper.readInt("choose chips flavor: ");
+       ChipsFlavor flavor =Helper.getEnum(ChipsFlavor.class ,input);
+       chip.setFlavor(flavor);
         order.addItem(chip);
 
     }

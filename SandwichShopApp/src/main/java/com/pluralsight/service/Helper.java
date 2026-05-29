@@ -4,15 +4,14 @@ import com.pluralsight.enums.DrinkSize;
 
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import static java.time.chrono.JapaneseEra.values;
 
 public class Helper {
 
-    //        SandwichSize size = Helper.getEnumChoice(SandwichSize.class);
     public static final Scanner scanner = new Scanner(System.in);
-
 
     public static String readString(String prompt) {
         System.out.print(prompt);
@@ -31,24 +30,37 @@ public class Helper {
             }
         }
     }
+    public static <T extends Enum<T>> T getEnum(Class<T> enumClass, int input) {
 
-    public static double readDouble(String prompt) {
-        System.out.print(prompt);
+        T[] values = enumClass.getEnumConstants();
+
         while (true) {
-            String input = readString(prompt);
 
+            if (input >= 1 && input <= values.length) {
+                return values[input - 1];
+            }
+
+            System.out.println("Invalid input please try again.");
+            displayHelper(enumClass);
+
+            input = readInt("Choose again: ");
+        }
+    }
+
+    public static List<Integer> readIntegerList(String prompt) {
+        while (true) {
             try {
-                return Double.parseDouble(input);
+                return Arrays.stream(readString(prompt).split(","))
+                        .map(String::trim)
+                        .map(Integer::parseInt)
+                        .toList();
             } catch (NumberFormatException e) {
                 System.out.println("Please enter a valid number, for example 1,2,3");
             }
         }
-        // public static  void pause() {
-        //    System.out.println();
-        //    readString("Enter choice to continue: ");
     }
 
-    public static <T extends Enum<T>> Enum<T> displayhelper(Class<T> enumClass) {
+    public static <T extends Enum<T>> Enum<T> displayHelper(Class<T> enumClass) {
 
         T[] items = enumClass.getEnumConstants();
         for (int i = 0; i < items.length; i++) {
@@ -58,5 +70,11 @@ public class Helper {
 
         return items[items.length - 1];
     }
+    public static void pause () {
+        System.out.println();
+        readString("Enter choice to continue: ");
+    }
 }
+
+
 

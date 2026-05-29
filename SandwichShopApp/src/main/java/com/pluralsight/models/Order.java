@@ -26,7 +26,9 @@ public String getReceiptText() {
         for (MenuItem item : items) {
             details.append(item.getReceiptLine()).append("\n");
         }
-        details.append("Total Price: $"+format("%.2f")).append(getPrice());
+        details.append("Total Price: $")
+                .append(String.format("%.2f",getPrice()))
+                .append("\n");
         return details.toString();
     }
 

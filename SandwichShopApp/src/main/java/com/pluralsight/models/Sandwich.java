@@ -7,19 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich extends MenuItem  {
-    private List <Integer> inputs= new ArrayList<>();
-    public void addInputs(int input){
-        inputs.add(input);
-    }
-
-   private SandwichSize size;
+    private SandwichSize size;
     private BreadType bread;
-
 
 public Sandwich() {
     super ("Sandwich");
-    this.size = size;
-    this.bread = bread;
+
 }
 
     private List<Meat> meats=new ArrayList<>();
@@ -30,11 +23,11 @@ public Sandwich() {
 
 private boolean extraMeat;
 private boolean extraCheese;
-private boolean toasted;
 
 
-    public void addSize(SandwichSize size){this.size=size;}
-    public void addBread(BreadType bread){
+
+    public void setSize(SandwichSize size){this.size=size;}
+    public void setBread(BreadType bread){
         this.bread=bread;
     }
     public void addMeat(Meat meat) {
@@ -55,6 +48,9 @@ private boolean toasted;
 
     @Override
     public double getPrice() {
+        if (size ==null){
+            return 0;
+        }
         double total=size.getBasePrice();
         total +=meats.size()*size.getMeatPrice();
         total +=cheeses.size()*size.getCheesePrice();
@@ -67,29 +63,15 @@ private boolean toasted;
         return total;
     }
 
-    public String  getName() {return size + " " +
-            bread + " Sandwich " +
-            regularToppings +
-            " $" + getPrice();
-
-    }
-
-
-
-    @Override
-    public void setSize(int size) {
-
-    }
-
     @Override
     public String getReceiptLine() {
-         return size + "\" " + bread + " sandwich"
-                + "\nMeats: " + meats
+        return "\nSize:" +  size +
+                "\nBread Type:"+bread
+                + "\nMeat: " + meats
                 + "\nCheese: " + cheeses
                 + "\nToppings: " + regularToppings
                 + "\nSauces: " + sauces
-                + "\nPrice: $" + String.format("%.2f",getPrice());
+                + "\nPrice: $" + String.format("%.2f", getPrice());
     }
-
 
 }

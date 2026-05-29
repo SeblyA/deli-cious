@@ -13,22 +13,22 @@ import java.util.List;
 
 public class ReceiptFileManager {
     public static void saveReceipt(Order order ) {
-
         try {
-            File folder = new File("receipt.txt");
+            File folder = new File("receipts");
             if (!folder.exists()) {
-                folder.mkdir();
-
+                folder.mkdirs();
             }
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
             String fileName = LocalDateTime.now().format(formatter) + ".txt";
             File file = new File(folder, fileName);
-            FileWriter writer = new FileWriter(file);
-            writer.write(order.getReceiptText());
-            writer.close();
-            System.out.println("Receipt saved: " + fileName);
-        } catch (IOException e) {
-
+            try (FileWriter writer = new FileWriter(file)) {
+                writer.write(order.getReceiptText());
+                System.out.println("Receipt saved "+fileName);
+            } catch (IOException e) {
+                System.out.println("Error saving receipt.");
+                e.printStackTrace();
+            }
+        }catch (Exception e){
             System.out.println("Error saving receipt.");
             e.printStackTrace();
         }
