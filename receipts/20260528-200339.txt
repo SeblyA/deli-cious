@@ -1,0 +1,15 @@
+
+====Receipt===
+
+Size:Eight
+Bread Type:WHITE
+Meat: [SALAMI, CHICKEN]
+Cheese: [AMERICAN]
+Toppings: [PEPPERS]
+Sauces: [MUSTARD, THOUSAND_ISLANDS, RANCH]
+Price: $12.50
+LARGE COKE: $3.00
+Ranch Chips: $ 1.50
+---------------------
+Total Price: $17.00
+===================

@@ -41,10 +41,10 @@ public class UserInterface {
     }
 
     public void header() {
-        System.out.println(">===================<");
+        System.out.println(">=====================<");
         System.out.println("    DELI-CIOUS " + "\n" +
                 "    Sandwich Shop ");
-        IO.println(">===================<");
+        IO.println(">=====================<");
     }
 
     public void homeScreen() {
@@ -56,6 +56,7 @@ public class UserInterface {
 
         int choice;
         do {
+            IO.println();
             IO.println("1)Add Sandwich)");
             IO.println("2)Add Drink");
             IO.println("3)Add Chips");
@@ -80,15 +81,15 @@ public class UserInterface {
 
         // LOOP enum object
         //customize sandwich
-        System.out.println("==Bread Options==");
+
+        System.out.println("=====Bread Options=====");
         Helper.displayHelper(BreadType.class);
         System.out.println("-------------------");
         int breadInput=Helper.readInt("Select your bread:  ");
-
         BreadType bread = Helper.getEnum(BreadType.class,breadInput );;
         sandwich.setBread(bread);
 
-        IO.println("==Sandwich Size(4\",8\",12\") ");
+        IO.println("===Sandwich Size(4\",8\",12\")=== ");
         Helper.displayHelper(SandwichSize.class);
         System.out.println("-------------------");
         System.out.println("choose sandwich size: ");
@@ -96,9 +97,8 @@ public class UserInterface {
         SandwichSize size= Helper.getEnum(SandwichSize.class,input );
         sandwich.setSize(size);
 
-        // selectedBread is an object
         //meat
-        IO.println("==Meat== ");
+        IO.println("=====Meat===== ");
         Helper.displayHelper(Meat.class);
         System.out.println("-------------------");
         List<Integer> meatInputs = Helper.readIntegerList ("choose meat: ");
@@ -107,7 +107,7 @@ public class UserInterface {
             sandwich.addMeat(meat);
         }
         //cheese
-        IO.println("==Cheese== ");
+        IO.println("======Cheese====== ");
         Helper.displayHelper(Cheese.class);
         System.out.println("-------------------");
         List<Integer> cheeseInputs = Helper.readIntegerList ("choose Cheese: ");
@@ -117,7 +117,7 @@ public class UserInterface {
         }
 
         // Prompt regular Topping
-        IO.println("==Toppings==");
+        IO.println("======Toppings======");
         Helper.displayHelper(RegularTopping.class);
         System.out.println("-------------------");
         List<Integer> toppingInputs = Helper.readIntegerList ("choose other toppings: ");
@@ -126,7 +126,7 @@ public class UserInterface {
             sandwich.addRegularTopping(topping);
         }
         //sauce
-        IO.println("==Sauce==");
+        IO.println("=====Sauce=====");
         Helper.displayHelper(Sauce.class);
         System.out.println("-------------------");
         List<Integer> sauceInputs = Helper.readIntegerList ("choose sauce: ");
@@ -134,7 +134,7 @@ public class UserInterface {
             Sauce sauce = Helper.getEnum(Sauce.class, sInput);
             sandwich.addSauce(sauce);
         }
-        IO.println("==Sides==");
+        IO.println("======Sides======");
         Helper.displayHelper(Sides.class);
         System.out.println("-------------------");
         List<Integer> sidesInputs = Helper.readIntegerList ("choose side: ");
@@ -151,14 +151,14 @@ public class UserInterface {
 
     public void drinkScreen() {
         Drink drink = new Drink();
-        IO.println("==Drink Size==");
+        IO.println("=====Drink Size=====");
         Helper.displayHelper(DrinkSize.class);
         System.out.println("-------------------");
         int input= Helper.readInt("choose drink size: ");
         DrinkSize size =Helper.getEnum(DrinkSize.class,input );
         drink.setSize(size);
 
-        IO.println("==Drink Flavor==");
+        IO.println("======Drinks======");
         Helper.displayHelper(DrinkFlavor.class);
         System.out.println("-------------------");
         int dInput =Helper.readInt ("choose drink flavor: ");
@@ -167,6 +167,7 @@ public class UserInterface {
         order.addItem(drink);
     }
     public void chipsScreen() {
+        IO.println("======Chips Flavor======");
         Chips chip = new Chips("chips");
         Helper.displayHelper(ChipsFlavor.class);
         System.out.println("-------------------");

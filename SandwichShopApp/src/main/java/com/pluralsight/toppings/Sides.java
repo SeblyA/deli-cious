@@ -4,6 +4,6 @@ import java.util.Arrays;
 
 public enum Sides {
 
-    au_jus,
-    sauce;
+    AU_JUS,
+    SAUCE;
 }

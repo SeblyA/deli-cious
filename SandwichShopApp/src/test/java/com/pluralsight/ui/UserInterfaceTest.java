@@ -4,6 +4,7 @@ import com.pluralsight.enums.BreadType;
 import com.pluralsight.enums.DrinkFlavor;
 import com.pluralsight.enums.SandwichSize;
 import com.pluralsight.models.Drink;
+import com.pluralsight.models.MenuItem;
 import com.pluralsight.models.Order;
 import com.pluralsight.models.Sandwich;
 import com.pluralsight.toppings.Meat;
@@ -24,21 +25,13 @@ class UserInterfaceTest {
 
     }
 
-    @Test
-    void drinkScreen() {
-        Order order = new Order();
-      Sandwich sandwich = new Sandwich();
-       order.addItem(flavor.COKE);
-        assertEquals(1,order.getPrice(),0.1);
-
-    }
 
     @Test
     void checkoutScreen() {
         //Arrange
         Order order = new Order();
         Sandwich sandwich = new Sandwich();
-        Sandwich.addMeat (Meat.STEAK );
+        SandwichSize.setSize(SandwichSize.Four);
         sandwich.setBread(BreadType.RYE);
       order.addItem(sandwich);
       //ACT

@@ -28,10 +28,6 @@ public class ReceiptFileManager {
                         LocalDateTime.now().format(formatter) + ".txt";
 
                 File file = new File(folder, fileName);
-
-                System.out.println("Saving receipt to:");
-                System.out.println(file.getAbsolutePath());
-
                 String receiptText = order.getReceiptText();
 
                 System.out.println(receiptText);

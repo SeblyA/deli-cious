@@ -1,17 +1,13 @@
 # 🥪 DELI-CIOUS Sandwich Shop  diagram Plan
 
-| Real-world thing | Class  Name  | Properties                | Methods                   |
-|------------------|--------------|---------------------------|---------------------------|
-| A sandwich       | `Sandwich`   | size, bread, meat, cheese | getPrice()                |
-| A drink          | `Drink`      | size, flavor              | getPrice(), getSummary()  |
-| A bag of chips   | `ChipsOrder` | flavor, quantity          | getPrice(), getSummary()  |
-| A full order     | `Order`      | List~MenuItem~            | addItem(), printReceipt() |
-| Base item        | `MenuItem`   | name                      | getPrice(), getSummary()  |
-classDiagram
-class Priceable {
-<<interface>>
-+getPrice() double
-}
+| Real-world thing | Class  Name | Properties     | Methods                        |
+|------------------|-------------|----------------|--------------------------------|
+| sandwich         | Sandwich    | size, quantity | getPrice()                     |
+| drink            | Drink       | size, flavor   | getPrice(), getReceiptLine()   |
+| bag of chips     | ChipsOrder  | flavor,        | getPrice(), getReceiptLine()   |
+| Add new order    | Order       | List,MenuItem, | addItem(), calculateTotal()    |
+| Base /Parent     | MenuItem    | name           | getPrice(), getReceiptLine()() |
+|
 
     class MenuItem {
         <<abstract>>

@@ -1,0 +1,13 @@
+
+====Receipt===
+
+Size:Four
+Bread Type:WHITE
+Meat: [STEAK]
+Cheese: [AMERICAN]
+Toppings: [PEPPERS, ONIONS]
+Sauces: [MAYO, RANCH, KETCHUP]
+Price: $7.20
+---------------------
+Total Price: $7.20
+===================

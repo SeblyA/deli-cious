@@ -49,13 +49,15 @@ public class Helper {
 
     public static List<Integer> readIntegerList(String prompt) {
         while (true) {
+
             try {
                 return Arrays.stream(readString(prompt).split(","))
                         .map(String::trim)
                         .map(Integer::parseInt)
                         .toList();
             } catch (NumberFormatException e) {
-                System.out.println("Please enter a valid number, for example 1,2,3");
+                System.out.println(" Invalid input");
+
             }
         }
     }
@@ -72,7 +74,6 @@ public class Helper {
     }
     public static void pause () {
         System.out.println();
-        readString("Enter choice to continue: ");
     }
 }
 

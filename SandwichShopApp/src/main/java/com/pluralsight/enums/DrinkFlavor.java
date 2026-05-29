@@ -3,10 +3,10 @@ package com.pluralsight.enums;
 import java.util.Arrays;
 
 public enum DrinkFlavor {
-    COKE,
+   COKE,
+    SPRITE,
     LEMONADE,
-    SWEET_TEA,
-    ROOT_BEER;
+    WATER;
 
 }
 
