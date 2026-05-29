@@ -1,0 +1,16 @@
+
+====Receipt===
+
+Size:Four
+BreadType:WHITE
+Meat: [STEAK]
+Cheese: [PROVOLONE]
+Toppings: [ONIONS, TOMATOES, JALAPENOS]
+Sauces: [MAYO, THOUSAND_ISLANDS]
+Price: $7.20
+Original Chips: $ 1.50
+SMALL COKE: $2.00
+Original Chips: $ 1.50
+---------------------
+Total Price: $12.20
+===================

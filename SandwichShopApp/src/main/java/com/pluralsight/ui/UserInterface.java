@@ -70,7 +70,7 @@ public class UserInterface {
                 case 4 ->checkoutScreen();
                 case 0 ->homeScreen();
 
-                default -> throw new IllegalStateException("Unexpected value: " + choice);
+                default -> System.out.println("Invalid option please try again!");
             }
         } while (choice != 0 && choice != 4);
 
@@ -101,7 +101,7 @@ public class UserInterface {
         IO.println("=====Meat===== ");
         Helper.displayHelper(Meat.class);
         System.out.println("-------------------");
-        List<Integer> meatInputs = Helper.readIntegerList ("choose Meat(1,2,3): ");
+        List<Integer> meatInputs = Helper.readIntegerList ("");
         for (int mInput :meatInputs) {
             Meat meat = Helper.getEnum(Meat.class, mInput);
             sandwich.addMeat(meat);

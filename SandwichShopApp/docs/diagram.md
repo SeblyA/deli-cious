@@ -1,12 +1,12 @@
 # 🥪 DELI-CIOUS Sandwich Shop  diagram Plan
 
-| Real-world thing | Class  Name | Properties     | Methods                        |
-|------------------|-------------|----------------|--------------------------------|
-| sandwich         | Sandwich    | size, quantity | getPrice()                     |
-| drink            | Drink       | size, flavor   | getPrice(), getReceiptLine()   |
-| bag of chips     | ChipsOrder  | flavor,        | getPrice(), getReceiptLine()   |
-| Add new order    | Order       | List,MenuItem, | addItem(), calculateTotal()    |
-| Base /Parent     | MenuItem    | name           | getPrice(), getReceiptLine()() |
+| Real-world thing | Class  Name | Properties     | Methods                      |
+|------------------|-------------|----------------|------------------------------|
+| sandwich         | Sandwich    | size, quantity | getPrice()                   |
+| drink            | Drink       | size, flavor   | getPrice(), getReceiptLine() |
+| bag of chips     | ChipsOrder  | flavor,        | getPrice(), getReceiptLine() |
+| Add new order    | Order       | List,MenuItem, | addItem(), calculateTotal()  |
+| Base /Parent     | MenuItem    | name           | getPrice(), getReceiptLine() |
 |
 
     class MenuItem {

@@ -51,6 +51,7 @@ private boolean extraCheese;
         if (size ==null){
             return 0;
         }
+        //calculates price for each size and extra meat
         double total=size.getBasePrice();
         total +=meats.size()*size.getMeatPrice();
         total +=cheeses.size()*size.getCheesePrice();
